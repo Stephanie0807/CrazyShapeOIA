@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity() {
                 intent = Intent(this@MainActivity, GameActivity::class.java).apply {
                 putExtra("形狀", Flag)
             }
-                startActivity(intent)
+                //starActivity(intent)
+                startActivityForResult(intent,99)
                 return true
             }
         })
@@ -56,4 +57,13 @@ fun RndShape() {
         4 -> imgNext.setImageResource(R.drawable.triangle)
     }
 }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 99){
+            intent= Intent(this@MainActivity,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
 }
