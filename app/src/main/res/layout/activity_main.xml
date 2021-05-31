@@ -7,6 +7,18 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imgTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imgNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cover"
+        app:layout_constraintbottom_toTapOf="@+id/imgNext"
+    app:layout_constraintVertical_chainStyle="spread"/>
+
+    <ImageView
         android:id="@+id/imgNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
