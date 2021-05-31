@@ -14,9 +14,13 @@ public final class MyAppGlideModule : AppGlideModule()
 
 
 class MainActivity : AppCompatActivity() {
+
+    var Flag:Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val img: ImageView = findViewById(R.id.imgTitle)
         GlideApp.with(this)
@@ -24,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             .override(800, 600)
             .into(imgTitle)
 
+        RndShape()
 
         Toast.makeText(baseContext, "作者：黃麗琪", Toast.LENGTH_LONG).show()
 
@@ -34,5 +39,19 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+        imgNext.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(v: View?) {
+                RndShape()
+            }
+    })
+}
+fun RndShape() {
+    Flag = (1..4).random()
+    when (Flag) {
+        1 -> imgNext.setImageResource(R.drawable.circle)
+        2 -> imgNext.setImageResource(R.drawable.square)
+        3 -> imgNext.setImageResource(R.drawable.star)
+        4 -> imgNext.setImageResource(R.drawable.triangle)
     }
+}
 }
